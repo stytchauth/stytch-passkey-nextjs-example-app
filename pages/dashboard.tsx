@@ -134,9 +134,15 @@ function Dashboard() {
   const { user, isInitialized } = useStytchUser();
 
   const { session } = useStytchSession();
-  const [sessionHasWebauthnFactor, setSessionHasWebauthnFactor] = useState(false);
-  const [sessionHasPhoneFactor, setSessionHasPhoneFactor] = useState(false);
-  const [sessionHasEmailFactor, setSessionHasEmailFactor] = useState(false);
+  const sessionHasWebauthnFactor = session?.authentication_factors?.some(
+    (factor: AuthenticationFactor) => factor.delivery_method === 'webauthn_registration'
+  );
+  const sessionHasPhoneFactor = session?.authentication_factors?.some(
+    (factor: AuthenticationFactor) => factor.delivery_method === 'sms'
+  );
+  const sessionHasEmailFactor = session?.authentication_factors?.some(
+    (factor: AuthenticationFactor) => factor.delivery_method === 'email'
+  );
   const shouldPromptWebauthn =
     ((sessionHasPhoneFactor && !sessionHasWebauthnFactor) || (sessionHasEmailFactor && !sessionHasWebauthnFactor)) &&
     user?.webauthn_registrations?.length > 0;
@@ -146,22 +152,8 @@ function Dashboard() {
   useEffect(() => {
     if (isInitialized && user === null) {
       router.push('/login');
-    } else if (session) {
-      session.authentication_factors.forEach((factor: AuthenticationFactor) => {
-        if (factor.delivery_method === 'sms') {
-          setSessionHasPhoneFactor(true);
-        }
-        if (factor.delivery_method === 'email') {
-          setSessionHasEmailFactor(true);
-        }
-        if (factor.delivery_method === 'webauthn_registration') {
-          setSessionHasWebauthnFactor(true);
-        }
-      });
-      // eslint-disable-next-line no-console
-      console.log(session);
     }
-  }, [user, isInitialized, router, session]);
+  }, [user, isInitialized, router]);
 
   const isMobile = useMediaQuery((theme: any) => theme.breakpoints.down('md'));
 
