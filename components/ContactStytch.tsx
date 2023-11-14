@@ -4,7 +4,7 @@ import React from 'react';
 function ContactStytch() {
   return (
     <Alert severity="info">
-      Survey Amp is a demo application created by Stytch. You can learn more about Stytch{' '}
+      Survey Amp is a Passkey demo application created by Stytch. You can learn more about Stytch{' '}
       <Link target="_blank" rel="noopener" href="https://stytch.com/">
         here
       </Link>{' '}

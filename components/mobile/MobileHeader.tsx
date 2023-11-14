@@ -22,13 +22,14 @@ type Props = {
 function MobileHeader(props: Props) {
   const [drawerOpen, setDrawerOpen] = useState(false);
   return (
-    <Box display="flex" justifyContent={'space-between'} padding={2} height={'60px'}>
-      <Image src="/logo.png" alt="Vector art" width="120" height="34" />
-      <ResetUserStateButton/>
-      <IconButton aria-label="delete">
-        <MenuIcon onClick={() => setDrawerOpen(true)} />
-      </IconButton>
-
+    <Box display="flex" justifyContent={'space-between'} padding={2} height={'60px'} alignItems={'center'}>
+        <Image src="/logo.png" alt="Vector art" width="120" height="34" />
+        <Box>
+            <ResetUserStateButton/>
+            <IconButton aria-label="delete">
+                <MenuIcon onClick={() => setDrawerOpen(true)} />
+            </IconButton>
+        </Box>
       {props.logout && (
         <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
           <List>

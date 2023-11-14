@@ -164,14 +164,14 @@ function Dashboard() {
           <Box
             display={'flex'}
             width="100%"
-            minHeight={'60px'}
+            minHeight={'75px'}
             alignItems="center"
             justifyContent={'space-between'}
             paddingX={3}
+            gap={1}
           >
             <Image src="/logo.png" alt="Vector art" width="149" height="34" />
             <ContactStytch />
-
             <Stack direction={'row'} display="flex" alignItems={'center'} gap={2}>
               <Image src="/help.png" alt="Vector art" width="24" height="24" />
               <Image src="/notifications.png" alt="Vector art" width="24" height="24" />
