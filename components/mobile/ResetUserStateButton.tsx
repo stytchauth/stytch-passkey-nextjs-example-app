@@ -39,9 +39,11 @@ function ResetUserStateButton() {
                         This functionality exists for testing purposes and would most likely not exist in production. <br/><br/>
                         When a user deletes their passkey locally (i.e. in browser, extension, or system settings),
                         or in case of a lost passkey, the user will be unable to take
-                        <Link href="https://stytch.com/docs/sdks/javascript-sdk/resources/mfa">MFA required actions </Link>
+                        {' '}
+                        <Link href="https://stytch.com/docs/sdks/javascript-sdk/resources/mfa">MFA required actions</Link>
+                        {' '}
                         such as creating new passkeys or deleting old ones. <br/><br/>
-                        This `&rdquo;`Reset User State`&rdquo;` functionality exists in lieu of of the support processes that would likely exist in production.
+                        This 'Reset User State' functionality exists in lieu of of the support processes that would likely exist in production.
                         This would involve the user providing proof of ownership of the account and then the passkey could be deleted off the account by the support member.<br/>
                     </DialogContentText>
                 </DialogContent>
