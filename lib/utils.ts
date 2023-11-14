@@ -2,7 +2,7 @@ import { User } from '@stytch/core/public';
 import { deleteUser } from './api';
 
 // eslint-disable-next-line
-export const resetDemo = async (user: User | null, stytch: any) => {
+export const deleteCurrentUser = async (user: User | null, stytch: any) => {
   if (user === null) {
     return;
   }
