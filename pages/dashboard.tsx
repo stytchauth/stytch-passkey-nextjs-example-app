@@ -11,7 +11,7 @@ import { StytchPasskeyRegistration } from '@stytch/nextjs';
 import { Products } from '@stytch/core/public';
 import { StytchEventType } from '@stytch/core/public';
 import { AuthenticationFactor } from '@stytch/core/public';
-import DeleteUserButton from "@/components/mobile/DeleteUserButton";
+import ResetUserStateButton from "@/components/mobile/ResetUserStateButton";
 
 enum StepUpType {
   email = 'email',
@@ -193,7 +193,7 @@ function Dashboard() {
               <Image src="/help.png" alt="Vector art" width="24" height="24" />
               <Image src="/notifications.png" alt="Vector art" width="24" height="24" />
               <Image src="/account.png" alt="Vector art" width="53" height="53" />
-              <DeleteUserButton/>
+              <ResetUserStateButton/>
             </Stack>
           </Box>
         )}
