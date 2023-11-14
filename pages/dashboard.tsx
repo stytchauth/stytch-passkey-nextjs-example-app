@@ -1,16 +1,13 @@
-import { Box, Stack, Typography, Button, useMediaQuery, TextField } from '@mui/material';
+import {Box, Button, Stack, TextField, Typography, useMediaQuery} from '@mui/material';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
+import {useRouter} from 'next/router';
+import React, {useEffect, useState} from 'react';
 import Head from 'next/head';
-import { useStytch, useStytchUser, useStytchSession } from '@stytch/nextjs';
+import {StytchPasskeyRegistration, useStytch, useStytchSession, useStytchUser} from '@stytch/nextjs';
 import SideNavBar from '../components/SideNavBar';
 import MobileHeader from '../components/mobile/MobileHeader';
 import ContactStytch from '../components/ContactStytch';
-import { StytchPasskeyRegistration } from '@stytch/nextjs';
-import { Products } from '@stytch/core/public';
-import { StytchEventType } from '@stytch/core/public';
-import { AuthenticationFactor } from '@stytch/core/public';
+import {AuthenticationFactor, Products, StytchEventType} from '@stytch/core/public';
 import ResetUserStateButton from "@/components/mobile/ResetUserStateButton";
 
 enum StepUpType {
@@ -42,7 +39,7 @@ const StepUp = ({ type }: { type: StepUpType }) => {
           setMethodID(resp.method_id);
         })
         .catch((e) => {
-          setErr(e);
+          setErr('Error occurred sending SMS: ' + e);
         });
     } else {
       stytch.otps.email
@@ -52,8 +49,8 @@ const StepUp = ({ type }: { type: StepUpType }) => {
         .then((resp) => {
           setMethodID(resp.method_id);
         })
-        .catch(() => {
-          setErr('Error occurred! Check console log.');
+        .catch((e) => {
+          setErr('Error occurred sending email: ' + e);
         });
     }
   };
@@ -101,13 +98,7 @@ const RegisterComponent = ({ numPasskeys }: { numPasskeys: number }) => {
     <>
       {displayRegisterPasskey ? (
         <StytchPasskeyRegistration
-          config={{
-            products: [Products.emailMagicLinks],
-            emailMagicLinksOptions: {
-              loginRedirectURL: 'http://localhost:3000/?type=eml',
-              signupRedirectURL: 'http://localhost:3000/?type=eml',
-            },
-          }}
+          config={{products: [Products.passkeys]}}
           callbacks={{
             onEvent: ({ type, data }) => {
               if (type === StytchEventType.PasskeyDone || type === StytchEventType.PasskeySkip) {
