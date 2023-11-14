@@ -1,0 +1,34 @@
+{
+  "name": "passkey-demo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.8.7",
+    "@next/bundle-analyzer": "12.2.4",
+    "@stytch/nextjs": "14.0.0",
+    "@stytch/vanilla-js": "3.2.0",
+    "cookies": "^0.8.0",
+    "next": "13.1.6",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-router-dom": "6.2.1"
+  },
+  "devDependencies": {
+    "@types/cookies": "^0.7.7",
+    "@types/node": "18.0.3",
+    "@types/react": "18.0.15",
+    "@types/react-dom": "18.0.6",
+    "eslint": "8.19.0",
+    "eslint-config-next": "12.2.0",
+    "typescript": "4.7.4"
+  }
+}
