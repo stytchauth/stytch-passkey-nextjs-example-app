@@ -20,8 +20,6 @@ type Props = {
 };
 
 function MobileHeader(props: Props) {
-  const stytch = useStytch();
-  const { user } = useStytchUser();
   const [drawerOpen, setDrawerOpen] = useState(false);
   return (
     <Box display="flex" justifyContent={'space-between'} padding={2} height={'60px'}>
