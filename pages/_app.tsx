@@ -12,13 +12,6 @@ const stytchClientOptions = {
     jwtCookieName: `stytch_session_passkey_demo_jwt`,
     opaqueTokenCookieName: `stytch_session_passkey_demo`,
   },
-  endpoints: {
-    sdkBackendURL: process.env.NEXT_PUBLIC_SDK_BACKEND_URL,
-    testAPIURL: process.env.NEXT_PUBLIC_TEST_API_URL,
-    liveAPIURL: process.env.NEXT_PUBLIC_LIVE_API_URL,
-    dfpBackendURL: process.env.NEXT_PUBLIC_DFP_BACKEND_URL,
-    clientsideServicesIframeURL: process.env.NEXT_PUBLIC_CLIENTSIDE_SERVICES_IFRAME_URL,
-  },
 } as StytchClientOptions;
 
 const theme = createTheme({
