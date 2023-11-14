@@ -12,7 +12,6 @@ import {
 import Image from 'next/image';
 import MenuIcon from '@mui/icons-material/Menu';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { useStytch, useStytchUser } from '@stytch/nextjs';
 import ResetUserStateButton from "@/components/mobile/ResetUserStateButton";
 
 type Props = {
