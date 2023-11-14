@@ -1,7 +1,7 @@
-export const deleteUser = async (member_id: string) =>
+export const deleteUser = async (user_id: string) =>
   fetch('/api/delete_user', {
     method: 'POST',
     body: JSON.stringify({
-      member_id,
+      user_id: user_id,
     }),
   });
