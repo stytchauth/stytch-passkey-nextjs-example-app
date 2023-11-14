@@ -60,7 +60,6 @@ function LoginPage() {
       </Head>
       <Box width={'100%'} height="100vh" display="flex">
         <Box display="flex" flexDirection={'column'} flexGrow={1} minWidth={isMobile ? undefined : 475}>
-          {/* Header */}
           {isMobile ? (
             <MobileHeader />
           ) : (
