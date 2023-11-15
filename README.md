@@ -25,11 +25,7 @@ Follow the steps below to get this application fully functional and running usin
 
    - If you signed up for Stytch in the past then your default Project is likely a Consumer type Project. You can confirm this in your [Project settings](https://stytch.com/dashboard/project-settings).
 
-<<<<<<< HEAD
 2. Navigate to [Redirect URLs](https://stytch.com/dashboard/redirect-urls), and add `http://localhost:3000` as the types **Login** and **Sign-up**.
-   =======
-2. Navigate to [Redirect URLs](https://stytch.com/dashboard/redirect-urls), and add `http://localhost:3000/api/callback` as the types **Login**, **Sign-up**, **Discovery** and **Invite**.
->>>>>>> origin/main
 
    <img width="400" alt="Redirect URLs" src="https://user-images.githubusercontent.com/100632220/220420098-84c78ca3-4e71-46b5-90f1-25afbb571ce2.png">
 
