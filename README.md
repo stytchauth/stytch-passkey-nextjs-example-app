@@ -1,6 +1,11 @@
-# Stytch B2B authentication example in Next.js
+# Stytch Passkey Example in Next.js
 
-[//]: # (TODO Add images)
+<p>
+    <img width="767" alt="Screenshot 2023-11-14 at 12 56 49 PM" src="https://github.com/stytchauth/stytch-passkey-nextjs-example-app/assets/111321901/f3f2dc67-7e06-4dec-8fde-743fa7f65af8">
+</p>
+<p>
+    <img width="1333" alt="Screenshot 2023-11-14 at 12 57 31 PM" src="https://github.com/stytchauth/stytch-passkey-nextjs-example-app/assets/111321901/4f87d23c-1f2f-47c2-92e5-84794f9f40a3">
+</p>
 
 ## Overview
 
@@ -18,7 +23,7 @@ Follow the steps below to get this application fully functional and running usin
 
 1. Create a [Stytch](https://stytch.com/) account. Within the signup flow select **B2C Authentication** as the authentication type you are interested in. Once your account is set up a Project called "My first project" will be automatically created for you.
 
-    - If you signed up for Stytch in the past then your default Project is likely a Consumer type Project. You can confirm this in your [Project settings](https://stytch.com/dashboard/project-settings).
+   - If you signed up for Stytch in the past then your default Project is likely a Consumer type Project. You can confirm this in your [Project settings](https://stytch.com/dashboard/project-settings).
 
 2. Navigate to [Redirect URLs](https://stytch.com/dashboard/redirect-urls), and add `http://localhost:3000` as the types **Login** and **Sign-up**.
 
