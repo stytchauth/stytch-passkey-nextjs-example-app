@@ -36,8 +36,8 @@ Follow the steps below to get this application fully functional and running usin
 In your terminal clone the project and install dependencies:
 
 ```bash
-git clone https://github.com/stytchauth/stytch-b2b-nextjs-example.git
-cd stytch-b2b-nextjs-example
+git clone [https://github.com/stytchauth/stytch-b2b-nextjs-example.git](https://github.com/stytchauth/stytch-passkey-nextjs-example-app.git)
+cd stytch-passkey-nextjs-example-app
 npm i
 ```
 
