@@ -6,6 +6,7 @@ import { StytchProvider } from '@stytch/nextjs';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Box } from '@mui/material';
 import { StytchClientOptions } from '@stytch/vanilla-js';
+import { theme } from "@/utils/theme";
 
 const stytchClientOptions = {
   cookieOptions: {
@@ -13,38 +14,6 @@ const stytchClientOptions = {
     opaqueTokenCookieName: `stytch_session_passkey_demo`,
   },
 } as StytchClientOptions;
-
-const theme = createTheme({
-  typography: {
-    allVariants: {
-      fontFamily: "'IBM Plex Sans', sans-serif;",
-      textTransform: 'none',
-    },
-    h1: {
-      fontSize: 40,
-      lineHeight: '60px',
-      fontWeight: 500,
-    },
-    h2: {
-      fontSize: 30,
-      lineHeight: '40px',
-      fontWeight: 500,
-    },
-    h3: {
-      fontSize: 24,
-      lineHeight: '30px',
-      fontWeight: 500,
-    },
-    caption: {
-      fontSize: 16,
-      lineHeight: '20px',
-    },
-    body1: {
-      fontSize: 18,
-      lineHeight: '25px',
-    },
-  },
-});
 
 function MyApp({ Component, pageProps }: AppProps) {
   const stytch = createStytchUIClient(process.env.NEXT_PUBLIC_STYTCH_PUBLIC_TOKEN as string, stytchClientOptions);

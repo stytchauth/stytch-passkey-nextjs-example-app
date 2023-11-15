@@ -1,7 +1,7 @@
 import {useStytch, useStytchUser} from "@stytch/nextjs";
 import React, {useState} from "react";
 import {Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Link} from "@mui/material";
-import {resetUserState} from "@/lib/utils";
+import {resetUserState} from "@/utils";
 
 function ResetUserStateButton() {
     const stytch = useStytch();
@@ -31,9 +31,7 @@ function ResetUserStateButton() {
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
-                <DialogTitle id="alert-dialog-title">
-                    {"Delete this user"}
-                </DialogTitle>
+                <DialogTitle id="alert-dialog-title">Delete this user</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description" >
                         This functionality exists for testing purposes and would most likely not exist in production. <br/><br/>

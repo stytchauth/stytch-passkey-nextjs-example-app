@@ -10,6 +10,8 @@ import ContactStytch from '../components/ContactStytch';
 import {AuthenticationFactor, Products, StytchEventType} from '@stytch/core/public';
 import ResetUserStateButton from "@/components/mobile/ResetUserStateButton";
 
+const SESSION_DURATION_MINUTES = 60;
+
 enum StepUpType {
   email = 'email',
   phone = 'phone',
@@ -20,12 +22,12 @@ const StepUp = ({ type }: { type: StepUpType }) => {
   const [inputValue, setInputValue] = useState('');
   const [methodID, setMethodID] = useState('');
   const { user } = useStytchUser();
-  const [err, setErr] = useState('');
+  const [error, setError] = useState('');
   const stytch = useStytch();
 
   const validateOTPButtonClick = () => {
     stytch.otps.authenticate(inputValue, methodID, {
-      session_duration_minutes: 60,
+      session_duration_minutes: SESSION_DURATION_MINUTES,
     });
   };
 
@@ -39,7 +41,7 @@ const StepUp = ({ type }: { type: StepUpType }) => {
           setMethodID(resp.method_id);
         })
         .catch((e) => {
-          setErr('Error occurred sending SMS: ' + e);
+          setError('Error occurred sending SMS: ' + e);
         });
     } else {
       stytch.otps.email
@@ -50,7 +52,7 @@ const StepUp = ({ type }: { type: StepUpType }) => {
           setMethodID(resp.method_id);
         })
         .catch((e) => {
-          setErr('Error occurred sending email: ' + e);
+          setError('Error occurred sending email: ' + e);
         });
     }
   };
@@ -67,7 +69,7 @@ const StepUp = ({ type }: { type: StepUpType }) => {
           variant="contained"
           color="primary"
           onClick={() => {
-            stytch.webauthn.authenticate({ session_duration_minutes: 60 });
+            stytch.webauthn.authenticate({ session_duration_minutes: SESSION_DURATION_MINUTES });
           }}
         >
           Step Up WebAuthn
@@ -86,7 +88,7 @@ const StepUp = ({ type }: { type: StepUpType }) => {
       <Button variant="contained" color="primary" onClick={validateOTPButtonClick}>
         Validate OTP
       </Button>
-      {err}
+      {error}
     </Box>
   );
 };
@@ -159,7 +161,7 @@ function Dashboard() {
       </Head>
       <Box display={'flex'} width="100%" height="100vh" flexDirection={'column'}>
         {isMobile ? (
-          <MobileHeader logout={() => logout()} />
+          <MobileHeader logout={logout} />
         ) : (
           <Box
             display={'flex'}

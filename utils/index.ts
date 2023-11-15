@@ -1,5 +1,5 @@
 import { User } from '@stytch/core/public';
-import { deleteUser } from './api';
+import { deleteUser } from '../lib/api';
 
 // eslint-disable-next-line
 export const resetUserState = async (user: User | null, stytch: any) => {
