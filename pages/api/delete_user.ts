@@ -1,5 +1,5 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import { UserService } from '../../lib/userService';
+import type { NextApiRequest, NextApiResponse } from "next";
+import { UserService } from "../../lib/userService";
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {

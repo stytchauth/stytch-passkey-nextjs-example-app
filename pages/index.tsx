@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { useStytchSession } from '@stytch/nextjs';
+import React, { useEffect } from "react";
+import { useRouter } from "next/router";
+import { useStytchSession } from "@stytch/nextjs";
 
 export default function Home() {
   const router = useRouter();
@@ -11,9 +11,9 @@ export default function Home() {
       return;
     }
     if (session) {
-      router.replace('/dashboard');
+      router.replace("/dashboard");
     } else {
-      router.replace('/login');
+      router.replace("/login");
     }
   }, [session, isInitialized, router]);
 

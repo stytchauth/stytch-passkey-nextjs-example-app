@@ -31,7 +31,7 @@ Follow the steps below to get this application fully functional and running usin
 
 3. Finally, navigate to [API Keys](https://stytch.com/dashboard/api-keys). You will need the `project_id`, `secret`, and `public_token` values found on this page later on.
 
-[//]: # (TODO: Update point 3)
+[//]: # "TODO: Update point 3"
 
 ### On your machine
 
