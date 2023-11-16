@@ -25,13 +25,11 @@ Follow the steps below to get this application fully functional and running usin
 
    - If you signed up for Stytch in the past then your default Project is likely a Consumer type Project. You can confirm this in your [Project settings](https://stytch.com/dashboard/project-settings).
 
-2. Navigate to [Redirect URLs](https://stytch.com/dashboard/redirect-urls), and add `http://localhost:3000` as the types **Login** and **Sign-up**.
-
-   <img width="400" alt="Redirect URLs" src="https://user-images.githubusercontent.com/100632220/220420098-84c78ca3-4e71-46b5-90f1-25afbb571ce2.png">
+2. Navigate to [SDK Configuration](https://stytch.com/dashboard/sdk-configuration) and click "Enable SDK". Enter the domain you will be running this application on (e.g. `localhost:3000`).
+Click the toggle to enable "Email Passcodes (OTP)", "SMS Passcodes (OTP)", and "Passkeys".
 
 3. Finally, navigate to [API Keys](https://stytch.com/dashboard/api-keys). You will need the `project_id`, `secret`, and `public_token` values found on this page later on.
 
-[//]: # "TODO: Update point 3"
 
 ### On your machine
 

@@ -16,7 +16,6 @@ const LoginComponent = () => {
       <StytchLogin
         config={{
           products: [Products.otp, Products.passkeys],
-          sessionOptions: { sessionDurationMinutes: 60 * 24 },
           otpOptions: {
             expirationMinutes: 10,
             methods: [OTPMethods.Email, OTPMethods.SMS],
