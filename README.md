@@ -36,8 +36,8 @@ Click the toggle to enable "Email Passcodes (OTP)", "SMS Passcodes (OTP)", and "
 In your terminal clone the project and install dependencies:
 
 ```bash
-git clone https://github.com/stytchauth/stytch-b2b-nextjs-example.git
-cd stytch-b2b-nextjs-example
+git clone [https://github.com/stytchauth/stytch-b2b-nextjs-example.git](https://github.com/stytchauth/stytch-passkey-nextjs-example-app.git)
+cd stytch-passkey-nextjs-example-app
 npm i
 ```
 
