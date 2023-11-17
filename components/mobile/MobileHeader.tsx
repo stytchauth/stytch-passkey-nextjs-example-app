@@ -16,6 +16,7 @@ import ResetUserStateButton from "@/components/mobile/ResetUserStateButton";
 
 type Props = {
   logout?: () => void;
+  showResetUserState?: boolean;
 };
 
 function MobileHeader(props: Props) {
@@ -41,6 +42,9 @@ function MobileHeader(props: Props) {
           onClose={() => setDrawerOpen(false)}
         >
           <List>
+            <ListItem>
+              {props.showResetUserState && <ResetUserStateButton />}
+            </ListItem>
             <ListItem key={1} disablePadding onClick={props.logout}>
               <ListItemButton>
                 <ListItemIcon>

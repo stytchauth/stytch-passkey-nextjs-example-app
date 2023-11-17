@@ -218,7 +218,7 @@ function Dashboard() {
       </Head>
       <Box display="flex" width="100%" height="100vh" flexDirection="column">
         {isMobile ? (
-          <MobileHeader logout={logout} />
+          <MobileHeader logout={logout} showResetUserState={true} />
         ) : (
           <Box
             display="flex"
@@ -255,12 +255,13 @@ function Dashboard() {
           <Box
             display="flex"
             width="100%"
-            minHeight="calc(120vh - 60px)"
+            height="fit-content"
             sx={{ backgroundColor: "#EEECFF" }}
             padding={4}
             flexDirection="column"
             alignItems="center"
             gap={2}
+            margin="16px"
           >
             <Box
               display="flex"
