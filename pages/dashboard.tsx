@@ -135,12 +135,14 @@ const StepUp = ({ type }: { type: StepUpType }) => {
 
 const RegisterComponent = ({ numPasskeys }: { numPasskeys: number }) => {
   const [displayRegisterPasskey, setDisplayRegisterPasskey] = useState(false);
+  const isMobile = useMediaQuery((theme: any) => theme.breakpoints.down("md"));
 
   return (
     <>
       {displayRegisterPasskey ? (
         <StytchPasskeyRegistration
           config={{ products: [Products.passkeys] }}
+          styles={{ container: { width: isMobile ? "340px" : "400px" } }}
           callbacks={{
             onEvent: ({ type, data }) => {
               if (
