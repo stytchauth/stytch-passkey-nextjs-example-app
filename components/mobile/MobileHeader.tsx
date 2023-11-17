@@ -30,7 +30,6 @@ function MobileHeader(props: Props) {
     >
       <Image src="/logo.png" alt="Vector art" width="120" height="34" />
       <Box>
-        <ResetUserStateButton />
         <IconButton aria-label="delete">
           <MenuIcon onClick={() => setDrawerOpen(true)} />
         </IconButton>

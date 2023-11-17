@@ -10,8 +10,9 @@ import ContactStytch from "../components/ContactStytch";
 
 const LoginComponent = () => {
   const router = useRouter();
+  const isMobile = useMediaQuery((theme: any) => theme.breakpoints.down("md"));
 
-  return (
+    return (
     <>
       <StytchLogin
         config={{
@@ -21,6 +22,7 @@ const LoginComponent = () => {
             methods: [OTPMethods.Email, OTPMethods.SMS],
           },
         }}
+        styles={{ container: { width: isMobile ? "340px" : "400px" } }}
         callbacks={{
           onEvent: ({ type, data }) => {
             if (type === StytchEventType.PasskeyAuthenticate) {
