@@ -41,10 +41,8 @@ function MobileHeader(props: Props) {
           open={drawerOpen}
           onClose={() => setDrawerOpen(false)}
         >
+          {props.showResetUserState && <ResetUserStateButton />}
           <List>
-            <ListItem>
-              {props.showResetUserState && <ResetUserStateButton />}
-            </ListItem>
             <ListItem key={1} disablePadding onClick={props.logout}>
               <ListItemButton>
                 <ListItemIcon>
