@@ -12,7 +12,7 @@ const LoginComponent = () => {
   const router = useRouter();
   const isMobile = useMediaQuery((theme: any) => theme.breakpoints.down("md"));
 
-    return (
+  return (
     <>
       <StytchLogin
         config={{

@@ -26,10 +26,9 @@ Follow the steps below to get this application fully functional and running usin
    - If you signed up for Stytch in the past then your default Project is likely a Consumer type Project. You can confirm this in your [Project settings](https://stytch.com/dashboard/project-settings).
 
 2. Navigate to [SDK Configuration](https://stytch.com/dashboard/sdk-configuration) and click "Enable SDK". Enter the domain you will be running this application on (e.g. `localhost:3000`).
-Click the toggle to enable "Email Passcodes (OTP)", "SMS Passcodes (OTP)", and "Passkeys".
+   Click the toggle to enable "Email Passcodes (OTP)", "SMS Passcodes (OTP)", and "Passkeys".
 
 3. Finally, navigate to [API Keys](https://stytch.com/dashboard/api-keys). You will need the `project_id`, `secret`, and `public_token` values found on this page later on.
-
 
 ### On your machine
 
