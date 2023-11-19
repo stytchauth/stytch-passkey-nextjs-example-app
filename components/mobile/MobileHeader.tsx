@@ -30,6 +30,7 @@ function MobileHeader(props: Props) {
       alignItems="center"
     >
       <Image src="/logo.png" alt="Vector art" width="120" height="34" />
+      {props.showResetUserState && <ResetUserStateButton />}
       <Box>
         <IconButton aria-label="delete">
           <MenuIcon onClick={() => setDrawerOpen(true)} />
@@ -41,7 +42,6 @@ function MobileHeader(props: Props) {
           open={drawerOpen}
           onClose={() => setDrawerOpen(false)}
         >
-          {props.showResetUserState && <ResetUserStateButton />}
           <List>
             <ListItem key={1} disablePadding onClick={props.logout}>
               <ListItemButton>
