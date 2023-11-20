@@ -44,6 +44,8 @@ const StepUp = ({ type }: { type: StepUpType }) => {
   const validateOTPButtonClick = () => {
     stytch.otps.authenticate(inputValue, methodID, {
       session_duration_minutes: SESSION_DURATION_MINUTES,
+    }).catch((e) => {
+      setError("Error occurred validating OTP: " + e);
     });
   };
 
