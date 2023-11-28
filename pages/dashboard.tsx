@@ -311,7 +311,7 @@ function Dashboard() {
                   horizontal: "center"
                 }} open={open} autoHideDuration={20000} onClose={handleClose}>
               <Alert onClose={handleClose} severity="success" sx={{ width: '87.5%' }}>
-                Congratulations on successfully creating a Passkey! To see Passkey authentication in action, just sign out and log back in. If you're utilizing a cross-device authenticator, explore cross-device authentication by visiting this website on your mobile device and logging in.
+                Congratulations on successfully creating a Passkey! To see Passkey authentication in action, just sign out and log back in. If you&apos;re utilizing a cross-device authenticator, explore cross-device authentication by visiting this website on your mobile device and logging in.
               </Alert>
             </Snackbar>
           </Box>

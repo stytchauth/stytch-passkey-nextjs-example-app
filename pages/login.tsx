@@ -25,7 +25,7 @@ const LoginComponent = () => {
         width: width,
         marginY: 2,
     }}>
-        Welcome to Stytch's Passkey Demo App!<br />
+        Welcome to Stytch&apos;s Passkey Demo App!<br />
         Verify your email or phone for added security, then enjoy swift and secure logins with your Passkey.
     </Box>
       <StytchLogin
