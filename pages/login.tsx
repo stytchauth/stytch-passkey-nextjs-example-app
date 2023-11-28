@@ -11,9 +11,23 @@ import ContactStytch from "../components/ContactStytch";
 const LoginComponent = () => {
   const router = useRouter();
   const isMobile = useMediaQuery((theme: any) => theme.breakpoints.down("md"));
+  const width = isMobile ? "340px" : "400px";
 
   return (
     <>
+    <Box mt={2} textAlign="center" sx={{
+        backgroundColor: "#D3CEFB",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 2,
+        borderRadius: 2,
+        width: width,
+        marginY: 2,
+    }}>
+        Welcome to Stytch's Passkey Demo App!<br />
+        Verify your email or phone for added security, then enjoy swift and secure logins with your Passkey.
+    </Box>
       <StytchLogin
         config={{
           products: [Products.otp, Products.passkeys],
@@ -22,7 +36,7 @@ const LoginComponent = () => {
             methods: [OTPMethods.Email, OTPMethods.SMS],
           },
         }}
-        styles={{ container: { width: isMobile ? "340px" : "400px" } }}
+        styles={{ container: { width: width } }}
         callbacks={{
           onEvent: ({ type, data }) => {
             if (type === StytchEventType.PasskeyAuthenticate) {
