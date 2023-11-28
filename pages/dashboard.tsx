@@ -135,13 +135,9 @@ const StepUp = ({ type }: { type: StepUpType }) => {
   );
 };
 
-const RegisterComponent = ({ numPasskeys }: { numPasskeys: number }) => {
-  const [displayRegisterPasskey, setDisplayRegisterPasskey] = useState(false);
+const RegisterComponent = ({ setDisplayRegisterPasskey }: { setDisplayRegisterPasskey: React.Dispatch<React.SetStateAction<boolean>> }) => {
   const isMobile = useMediaQuery((theme: any) => theme.breakpoints.down("md"));
-
   return (
-    <>
-      {displayRegisterPasskey ? (
         <StytchPasskeyRegistration
           config={{ products: [Products.passkeys] }}
           styles={{ container: { width: isMobile ? "340px" : "400px" } }}
@@ -158,17 +154,6 @@ const RegisterComponent = ({ numPasskeys }: { numPasskeys: number }) => {
             },
           }}
         />
-      ) : (
-        <>
-          <Typography variant="caption">
-            You have {numPasskeys} registered Passkey(s)
-          </Typography>
-          <Button onClick={() => setDisplayRegisterPasskey(true)}>
-            Create a Passkey
-          </Button>
-        </>
-      )}
-    </>
   );
 };
 
@@ -176,6 +161,7 @@ function Dashboard() {
   const router = useRouter();
   const stytch = useStytch();
   const { user, isInitialized } = useStytchUser();
+  const [displayRegisterPasskey, setDisplayRegisterPasskey] = useState(false);
 
   const { session } = useStytchSession();
   const sessionHasWebauthnFactor = session?.authentication_factors?.some(
@@ -279,16 +265,27 @@ function Dashboard() {
                 You are now logged into SurveyAmp
               </Typography>
             </Box>
-            {shouldPromptWebauthn && <StepUp type={StepUpType.webauthn} />}
-            {shouldPromptPhone && <StepUp type={StepUpType.phone} />}
-            {shouldPromptEmail && <StepUp type={StepUpType.email} />}
-            {!shouldPromptEmail &&
-              !shouldPromptPhone &&
-              !shouldPromptWebauthn && (
-                <RegisterComponent
-                  numPasskeys={user?.webauthn_registrations?.length}
-                />
-              )}
+            {displayRegisterPasskey ? (
+                <>
+                  {shouldPromptWebauthn && <StepUp type={StepUpType.webauthn} />}
+                  {shouldPromptPhone && <StepUp type={StepUpType.phone} />}
+                  {shouldPromptEmail && <StepUp type={StepUpType.email} />}
+                  {!shouldPromptEmail &&
+                      !shouldPromptPhone &&
+                      !shouldPromptWebauthn && (
+                          <RegisterComponent setDisplayRegisterPasskey={setDisplayRegisterPasskey}/>
+                      )}
+                </>
+            ) : (
+                <>
+                  <Typography variant="caption">
+                    You have {user?.webauthn_registrations?.length} registered Passkey(s)
+                  </Typography>
+                  <Button onClick={() => setDisplayRegisterPasskey(true)}>
+                    Create a Passkey
+                  </Button>
+                </>
+            )}
           </Box>
         </Box>
       </Box>
