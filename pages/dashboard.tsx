@@ -5,6 +5,7 @@ import {
   TextField,
   Typography,
   useMediaQuery,
+  Snackbar, Alert
 } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -135,7 +136,12 @@ const StepUp = ({ type }: { type: StepUpType }) => {
   );
 };
 
-const RegisterComponent = ({ setDisplayRegisterPasskey }: { setDisplayRegisterPasskey: React.Dispatch<React.SetStateAction<boolean>> }) => {
+type RegisterComponentProps = {
+    setDisplayRegisterPasskey: React.Dispatch<React.SetStateAction<boolean>>;
+    setDisplaySuccessToast: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const RegisterComponent = ({ setDisplayRegisterPasskey, setDisplaySuccessToast }: RegisterComponentProps) => {
   const isMobile = useMediaQuery((theme: any) => theme.breakpoints.down("md"));
   return (
         <StytchPasskeyRegistration
@@ -151,6 +157,9 @@ const RegisterComponent = ({ setDisplayRegisterPasskey }: { setDisplayRegisterPa
                 console.log("Passkey dismissed", data);
                 setDisplayRegisterPasskey(false);
               }
+              if (type === StytchEventType.PasskeyRegister) {
+                setDisplaySuccessToast(true);
+              }
             },
           }}
         />
@@ -162,6 +171,8 @@ function Dashboard() {
   const stytch = useStytch();
   const { user, isInitialized } = useStytchUser();
   const [displayRegisterPasskey, setDisplayRegisterPasskey] = useState(false);
+  const [postRegistrationCopy, setPostRegistrationCopy] = useState("");
+
 
   const { session } = useStytchSession();
   const sessionHasWebauthnFactor = session?.authentication_factors?.some(
@@ -197,6 +208,15 @@ function Dashboard() {
 
   const logout = () => {
     stytch.session.revoke();
+  };
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
   };
 
   return (
@@ -237,7 +257,6 @@ function Dashboard() {
             </Stack>
           </Box>
         )}
-
         <Box display="flex" width="100%" minHeight="90vh">
           {!isMobile && <SideNavBar logout={() => logout()} />}
           <Box
@@ -273,7 +292,7 @@ function Dashboard() {
                   {!shouldPromptEmail &&
                       !shouldPromptPhone &&
                       !shouldPromptWebauthn && (
-                          <RegisterComponent setDisplayRegisterPasskey={setDisplayRegisterPasskey}/>
+                          <RegisterComponent setDisplayRegisterPasskey={setDisplayRegisterPasskey} setDisplaySuccessToast={setOpen}/>
                       )}
                 </>
             ) : (
@@ -286,6 +305,14 @@ function Dashboard() {
                   </Button>
                 </>
             )}
+            <Snackbar
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "center"
+                }} open={open} autoHideDuration={20000} onClose={handleClose}>
+              <Alert onClose={handleClose} severity="success" sx={{ width: '87.5%' }}>
+                Congratulations on successfully creating a Passkey! To see Passkey authentication in action, just sign out and log back in. Also, if your Passkey is synced, explore cross-device authentication by visiting this website on your mobile device and logging in!</Alert>
+            </Snackbar>
           </Box>
         </Box>
       </Box>
