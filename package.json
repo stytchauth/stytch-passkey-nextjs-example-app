@@ -16,7 +16,7 @@
     "@emotion/styled": "^11.9.3",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.8.7",
-    "@next/bundle-analyzer": "12.2.4",
+    "@next/bundle-analyzer": "12.3.7",
     "@stytch/nextjs": "^14.0.0",
     "@stytch/vanilla-js": "^3.2.5",
     "cookies": "^0.8.0",
