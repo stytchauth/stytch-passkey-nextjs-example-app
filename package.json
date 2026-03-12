@@ -14,7 +14,7 @@
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
-    "@mui/icons-material": "^5.8.4",
+    "@mui/icons-material": "^5.18.0",
     "@mui/material": "^5.8.7",
     "@next/bundle-analyzer": "12.2.4",
     "@stytch/nextjs": "^14.0.0",
